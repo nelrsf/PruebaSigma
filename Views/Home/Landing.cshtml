@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Landing";
+
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="~/Content/Styles/Landing.css" rel="stylesheet" type="text/css" />
+
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<body>
+    <div class="logo-div mt-5">
+        <img src="~/Content/Images/sigma-logo.png" class="sigma-logo" />
+    </div>
+
+    <div class="sigma-title my-5">
+        <h3>Prueba de desarrollo Sigma</h3>
+    </div>
+
+    <div class="sigma-subtitle">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 my-2">
+                <img src="~/Content/Images/sigma-image.png" class="img-fluid" />
+            </div>
+            <div class="col-md-6 col-sm-12 my-2 px-5">
+                <div class="card shadow p-3 mb-5 bg-white sigma-card-form">
+                    <div class="form-group p-4 sigma-form">
+                        <form action="~/SendLandingData/Index" method="post">
+                            <label for="stateField" class="font-weight-bold mt-2">Departamento*</label>
+                            <select name="stateField" id="stateFieldId" class="form-control">
+                                @foreach (var state in Model.states)
+                                {
+                                    <option value="@state">
+                                        @state
+                                    </option>
+                                }
+                            </select>
+
+
+                            @{
+                                //var currentState = Request["stateField"];
+                                var currentState = "Amazonas";
+                                //No supe como capturar el valor del combobox :( disculpe
+                            }
+
+                            <label for="cityField" class="font-weight-bold mt-3">Ciudad*</label>
+                            <select name="cityField" id="cityField" class="form-control">
+                                @foreach (var city in Model.getCitiesByState(@currentState))
+                                {
+                                    <option>@city</option>
+                                }
+
+                            </select>
+                            <label for="nameField" class="font-weight-bold mt-3">Nombre*</label>
+                            <input name="nameField" type="text" class="form-control" id="nameField" placeholder="Pepito de Jesus">
+                            <label for="emailField" class="font-weight-bold mt-3">Correo*</label>
+                            <input name="emailField" type="email" class="form-control" id="emailField" placeholder="Pepitodejesus@gmail.com">
+                            <button type="submit" class="btn btn-danger rounded-pill d-flex mt-5 mx-auto justify-content-center align-items-center">ENVIAR</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+

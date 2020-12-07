@@ -1,0 +1,32 @@
+﻿body {
+   
+}
+
+.sigma-logo{
+    display:block;
+    margin:auto;
+}
+.sigma-title h3 {
+    display: block;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.sigma-subtitle p {
+    margin: 0% 20%;
+    text-align:center;
+    font-family: 'Roboto', sans-serif;
+    color:gray;
+    font-weight:bold;
+}
+
+.sigma-card-form{
+    border-radius: 5% 5%;
+}
+
+.sigma-form button{
+    width:35%;
+    height: 3rem;
+    font-weight:bold;
+}
